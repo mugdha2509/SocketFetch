@@ -27,3 +27,12 @@ The first 3 client connections are handled by serverw24.
 Client connections 4-6 are handled by mirror1.
 Client connections 7-9 are handled by mirror2.
 Subsequent client connections are handled by serverw24, mirror1, and mirror2 in an alternating manner. For example, connection 10 is handled by serverw24, connection 11 by mirror1, connection 12 by mirror2, and so on.
+
+
+Steps to run the project 
+1) Run ./serverw24 in 1 terminal
+2) Run .clientw24 in another terminal
+3) Run./mirror1 in another terminal
+4) Run ./mirror2 in another terminal
+5) can test all commands in 1 terminal sessions if you want or can test in different terminals as well.
+6) for 1-3 connections, commands will run by serverw24 and give output, for 4-6 connection from mirror1 and 7-9 connections to mirror2, then 10th to serverw24, 11th to mirror1 and 12th to mirror2 and so on....
