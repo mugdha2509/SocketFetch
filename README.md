@@ -1,3 +1,5 @@
+About the Project:
+
 Introduction
 This project is a client-server system where a client can request files or sets of files from the server. The server searches for the requested files in its directory tree and returns them to the client. Multiple clients can connect to the server from different machines and request files using specific commands.
 
@@ -30,9 +32,16 @@ Subsequent client connections are handled by serverw24, mirror1, and mirror2 in 
 
 
 Steps to run the project 
-1) Run ./serverw24 in 1 terminal
-2) Run .clientw24 in another terminal
-3) Run./mirror1 in another terminal
-4) Run ./mirror2 in another terminal
-5) can test all commands in 1 terminal sessions if you want or can test in different terminals as well.
-6) for 1-3 connections, commands will run by serverw24 and give output, for 4-6 connection from mirror1 and 7-9 connections to mirror2, then 10th to serverw24, 11th to mirror1 and 12th to mirror2 and so on....
+1) Open a terminal and navigate to the project directory.
+2) Run the command ./serverw24.
+3) Open another terminal and navigate to the project directory.
+4) Run the command ./clientw24.
+5) Open yet another terminal and navigate to the project directory.
+6) Run the command ./mirror1.
+7) Open another terminal and navigate to the project directory.
+8) Run the command ./mirror2.
+9) You can test all commands in one terminal session or use different terminals for each connection.
+10) For the first 3 connections, commands will be executed by serverw24 and output will be provided.
+11) For connections 4-6, commands will be executed by mirror1.
+12) For connections 7-9, commands will be executed by mirror2.
+13) Subsequent connections will alternate between serverw24, mirror1, and mirror2 in 
