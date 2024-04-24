@@ -117,7 +117,7 @@ void manage_command(int client_socket, const char *command) {
         // manage w24fda command
         performw24fda(client_socket, date_str);
         return; // Exit function after handling w24fda command
-    } else if (strncmp(command, "w24fz ", 6) == 0) {
+    } else if (strncmp(command, "w24fz ", 5) == 0) {
         // Extract size range from command
         long size1, size2;
         if (sscanf(command + 6, "%ld %ld", &size1, &size2) != 2) {
