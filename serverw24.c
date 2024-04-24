@@ -64,7 +64,6 @@ void manageerror(const char *msg) {
 
 
 // Function prototypes
-
 void performdirlista(int client_socket);
 void performdirlistt(int client_socket);
 void performw24fn(int client_socket, char *filename);
@@ -102,6 +101,7 @@ char *redirect_destination(int connection_count) {
         }
     }
 }
+
 // Function to manage client commands
 void manage_command(int client_socket, const char *command) {
     // Check if the command is "w24fn"
@@ -176,6 +176,7 @@ void send_response(int client_socket, const char *response) {
 int compare_entries(const struct dirent **a, const struct dirent **b) {
     return strcasecmp((*a)->d_name, (*b)->d_name);
 }
+
 void performdirlista(int client_socket) {
     printf("Listing directories and subdirectories alphabetically...\n");
  
@@ -235,51 +236,6 @@ void list_directories_recursive(int client_socket, const char *path) {
     closedir(dir);
 }
 
-// function to give directory names alphabetically present under HOME
-/*void performdirlista(int client_socket) {
-    char *home_dir = getenv("HOME");
-    if (home_dir == NULL) {
-        perror("getenv");
-        exit(EXIT_FAILURE);
-    }
- 
-    struct dirent **namelist;
-    int n;
- 
-    // Scan the directory for subdirectories
-    n = scandir(home_dir, &namelist, NULL, alphasort);
-    if (n == -1) {
-        perror("scandir");
-        exit(EXIT_FAILURE);
-    }
- 
-    // Concatenate directory names into a single buffer
-    char response[MAXDATASIZE];
-    response[0] = '\0'; // Ensure the buffer is initially empty
-    for (int i = 0; i < n; i++) {
-        if (namelist[i]->d_type == DT_DIR) {
-            // Skip "." and ".." entries
-            if (strcmp(namelist[i]->d_name, ".") != 0 && strcmp(namelist[i]->d_name, "..") != 0) {
-                strcat(response, namelist[i]->d_name);
-                strcat(response, "\n");
-            }
-        }
-        free(namelist[i]);
-    }
-    free(namelist);
- 
-    // Send the concatenated buffer to the client
-    if (send(client_socket, response, strlen(response), 0) == -1) {
-        perror("send");
-        exit(EXIT_FAILURE);
-    }
- 
-    // Send a termination message to indicate the end of data
-    if (send(client_socket, "EndOfData\n", strlen("EndOfData\n"), 0) == -1) {
-        perror("send");
-        exit(EXIT_FAILURE);
-    }
-}*/
 
 // Function to manage dirlist -t command
 void performdirlistt(int client_socket) {
